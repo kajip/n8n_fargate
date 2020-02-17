@@ -1,0 +1,24 @@
+[
+    {
+        "name": "${container_name}",
+        "image": "n8nio/n8n:latest",
+        "cpu": 0,
+        "memory": null,
+        "essential": true,
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-region": "ap-northeast-1",
+                "awslogs-group": "${log_group_name}",
+                "awslogs-stream-prefix": "n8n"
+            }
+        },
+        "portMappings": [
+            {
+                "containerPort": ${n8n_port},
+                "hostPort": ${n8n_port}
+            }
+        ],
+        "environment": []
+    }
+]
