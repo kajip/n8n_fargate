@@ -6,8 +6,8 @@ resource "aws_security_group" "elb" {
 
   ingress {
     description = "n8n request"
-    from_port   = "${var.n8n_port}"
-    to_port     = "${var.n8n_port}"
+    from_port   = var.n8n_port
+    to_port     = var.n8n_port
     protocol    = "tcp"
     cidr_blocks = [
       "0.0.0.0/0"
@@ -31,11 +31,11 @@ resource "aws_security_group" "n8n" {
 
   ingress {
     description = "n8n request from elb"
-    from_port   = "${var.n8n_port}"
-    to_port     = "${var.n8n_port}"
+    from_port   = var.n8n_port
+    to_port     = var.n8n_port
     protocol    = "tcp"
     security_groups = [
-      "${aws_security_group.elb.id}"
+      aws_security_group.elb.id
     ]
   }
 

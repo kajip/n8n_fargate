@@ -1,4 +1,4 @@
-/** 基本定義 */
+// 基本定義
 
 // Remote Backend
 terraform {
